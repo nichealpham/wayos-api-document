@@ -1,0 +1,470 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "Staff"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/staff/test":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Test"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getprofile":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get profile"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getdropdownlist":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get dropdown list"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        name: "statusID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/searchdropdownlist":
+    get:
+      tags:
+      - "Functions List"
+      summary: "search dropdown list"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        name: "statusID"
+        type: "integer"
+        required: true
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getprofile/{staffID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get profile by id"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "staffID"
+        type: "integer"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getlistcompanystaffs":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get list company staffs"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        name: "search"
+        type: "string"
+        required: true
+      - in: "query"
+        name: "status"
+        type: "integer"
+        required: true
+      - in: "query"
+        name: "departmentID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getlistadmins":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get list admins"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getheaderinfo":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get header info"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getuserapproverequest":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get user manager request"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getusermanagerrequest/{departmentID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get user manager request"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "departmentID"
+        type: "integer"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+          
+  "/usertypes/search":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get dropdown list"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        name: "keyword"
+        type: "string"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/searchgroups/{staffID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "search groups"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "staffID"
+        type: "integer"
+        required: true
+        
+      - in: "query"
+        name: "searchText"
+        type: "string"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/createstaff":
+    post:
+      tags:
+      - "Functions List"
+      summary: "create staff"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            StaffCode:
+              type: string
+            CompanyID:
+              type: integer
+            CompanyName:
+              type: string
+            Email:
+              type: string
+            Phone:
+              type: string
+            Passwords:
+              type: string
+            FullName:
+              type: string
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/getuserbystaffidandcompanyID/{UserRequirementID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get user by staffidand companyID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "UserRequirementID"
+        type: "integer"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/updatestaff/{staffID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "update staff"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "staffID"
+        type: "integer"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            StaffCode:
+              type: string
+            CompanyID:
+              type: integer
+            CompanyName:
+              type: string
+            Email:
+              type: string
+            Phone:
+              type: string
+            Passwords:
+              type: string
+            FullName:
+              type: string
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/updateadmin/{staffID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "update admin"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "staffID"
+        type: "integer"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            StaffCode:
+              type: string
+            CompanyID:
+              type: integer
+            CompanyName:
+              type: string
+            Passwords:
+              type: string
+            FullName:
+              type: string
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/deletestaff/{staffID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "delete staff"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "staffID"
+        type: "integer"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/staff/updategroups/{staffID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "update staff group"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "staffID"
+        type: "integer"
+        required: true
+        
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ListItems:
+              type: "array"
+              items: 
+                type: "object"
+                properties:
+                  GroupID:
+                    type: "integer"
+                  GroupName:
+                    type: "string"
+                  GroupDescription:
+                    type: "string"
+                  AccessAllowed: 
+                    type: "boolean"
+                  StaffID:
+                    type: "integer"
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+
+  
