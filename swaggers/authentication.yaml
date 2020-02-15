@@ -1,0 +1,102 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "Authentication"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/authentication/getauthdata":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Get User data from login access token"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+
+  "/authentication/login":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Login user with password and staff code"
+      parameters:
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            StaffCode:
+              type: string
+            Passwords:
+              type: string
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/authentication/logout":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Logout user from system"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/authentication/validtoken":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Validate token hop le hay khong doi voi he thong"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/authentication/getlistusertypes":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Get list user types from system"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

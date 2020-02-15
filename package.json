@@ -23,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/nichealpham/wayos-api-document/issues"
   },
-  "homepage": "https://github.com/nichealpham/wayos-api-document#readme"
+  "homepage": "https://github.com/nichealpham/wayos-api-document#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "js-yaml": "^3.13.1",
+    "swagger-ui-express": "^4.1.3"
+  }
 }
