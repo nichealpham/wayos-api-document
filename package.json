@@ -1,0 +1,27 @@
+{
+  "name": "wayos-api-document",
+  "version": "1.0.1",
+  "description": "API documentation for WayOS platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichealpham/wayos-api-document.git"
+  },
+  "keywords": [
+    "swagger",
+    "wayos",
+    "api",
+    "document",
+    "saas",
+    "web"
+  ],
+  "author": "nichealpham@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nichealpham/wayos-api-document/issues"
+  },
+  "homepage": "https://github.com/nichealpham/wayos-api-document#readme"
+}
