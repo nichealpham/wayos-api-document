@@ -1,38 +1,21 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs xử lý nghiệp vụ về đăng nhập / đăng xuất và bảo mật thông tin của user trong hệ thống WayOS."
   version: "1.0.1"
   title: "Authentication"
 host: "apiway.mavecons.com"
 basePath: "/api"
-tags:
-- name: "Functions List"
+
 schemes:
 - "http"
+
 paths:
-  "/authentication/getauthdata":
-    get:
-      tags:
-      - "Functions List"
-      summary: "Get User data from login access token"
-      parameters:
-      - in: "header"
-        type: "string"
-        name: "Authorization"
-        required: true
-        
-      responses:
-        500:
-          description: "Internal server error"
-        200:
-          description: "OK"
-          
 
   "/authentication/login":
     post:
       tags:
-      - "Functions List"
-      summary: "Login user with password and staff code"
+      - "Public APIs"
+      summary: "Đăng nhập hệ thống, sau đó trả về  Access Token"
       parameters:
       - in: "body"
         name: "Body"
@@ -49,12 +32,12 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
-          
-  "/authentication/logout":
-    post:
+
+  "/authentication/getauthdata":
+    get:
       tags:
-      - "Functions List"
-      summary: "Logout user from system"
+      - "Public APIs"
+      summary: "Truy xuất thông tin user thông qua Access Token"
       parameters:
       - in: "header"
         type: "string"
@@ -70,8 +53,25 @@ paths:
   "/authentication/validtoken":
     post:
       tags:
-      - "Functions List"
-      summary: "Validate token hop le hay khong doi voi he thong"
+      - "Public APIs"
+      summary: "Kiểm tra Access Token hợp lệ / còn hiệu lực"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+
+  "/authentication/logout":
+    post:
+      tags:
+      - "Public APIs"
+      summary: "Đăng xuất hệ thống"
       parameters:
       - in: "header"
         type: "string"
@@ -87,8 +87,9 @@ paths:
   "/authentication/getlistusertypes":
     get:
       tags:
-      - "Functions List"
-      summary: "Get list user types from system"
+      - "Internal APIs"
+      summary: "Truy xuất thông tin Loại tài khoản"
+      description: "Tài khoảng WayOS chia làm 3 loại: Owner account, Admin account, User account"
       parameters:
       - in: "header"
         type: "string"
@@ -99,4 +100,29 @@ paths:
         500:
           description: "Internal server error"
         200:
+          description: "OK
+          
+  "/authentication/switchcompany/{companyID}:
+    post:
+      tags:
+      - "Internal APIs"
+      summary: "Thay đổi công ty đăng nhập"
+      description: "Nếu account user làm việc ở nhiều công ty, cho phép user switch từ công ty này sang công ty khác trên cùng Access Token mà không cần đăng xuất"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      - in: "path"
+        name: "companyID"
+        type: "integer"
+        required: true
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
           description: "OK"
+
+  
