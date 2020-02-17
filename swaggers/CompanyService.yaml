@@ -1,0 +1,161 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "Company Services"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/companyservices/count":
+    get:
+      tags:
+      - "Functions List"
+      summary: "count"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/companyservices/listcompanyservice":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list company service"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/companyservices/companyservicebyid/{companyserviceID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list company service by id"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "path"
+        name: "companyserviceID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/companyservices/createcompanyservice":
+    post:
+      tags:
+      - "Functions List"
+      summary: "create company service"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            CompanyServiceID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            ServicesID:
+              type: "integer"
+            StatusID:
+              type: "integer"
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/companyservices/updatecompanyservice/{companyserviceID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "update company service"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "path"
+        type: "integer"
+        name: "companyserviceID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            CompanyServiceID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            ServicesID:
+              type: "integer"
+            StatusID:
+              type: "integer"
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          

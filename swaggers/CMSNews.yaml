@@ -1,0 +1,202 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "CMS News"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/cmsnews/companylistnews":
+    get:
+      tags:
+      - "Functions List"
+      summary: "company list news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmsnews/listnews":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+      - in: "query"
+        name: "statusID"
+        type: "integer"
+        required: true
+      - in: "query"
+        name: "categoryNewsID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmsnews/getnewsbyid/{newsID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get news by id"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "newsID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmsnews/createnews":
+    post:
+      tags:
+      - "Functions List"
+      summary: "create news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            NewsID:
+              type: "integer"
+            CategoryNewsID:
+              type: "integer"
+            CategoryNewsName:
+              type: "string"
+            Title:
+              type: "string"
+            StatusID:
+              type: "integer"
+            ShortDescription:
+              type: "string"
+            Description:
+              type: "string"
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmsnews/updatenews/{newsID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "update news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "newsID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            NewsID:
+              type: "integer"
+            CategoryNewsID:
+              type: "integer"
+            CategoryNewsName:
+              type: "string"
+            Title:
+              type: "string"
+            StatusID:
+              type: "integer"
+            ShortDescription:
+              type: "string"
+            Description:
+              type: "string"
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmsnews/deletenews/{newsID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "delete news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "newsID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          

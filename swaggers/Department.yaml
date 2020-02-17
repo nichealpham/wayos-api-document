@@ -1,0 +1,231 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "Departments"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/departments/listdepartment":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list department"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+      - in: "query"
+        name: "statusID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/departments/getliststaffs/{departmentID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get list staffs"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "path"
+        name: "departmentID"
+        type: "integer"
+        required: true
+      - in: "query"
+        name: "CompanyID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  
+  "/departments/dropdownlistdepartments":
+    get:
+      tags:
+      - "Functions List"
+      summary: "dropdown list departments"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/departments/departmentbyid/{departmentID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "department by id"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "departmentID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/departments/search":
+    get:
+      tags:
+      - "Functions List"
+      summary: "dropdown list departments"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        name: "keyword"
+        type: "string"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/departments/createdepartment":
+    post:
+      tags:
+      - "Functions List"
+      summary: "create department"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            DepartmentID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            DepartmentName:
+              type: "string"
+            DepartmentDescription:
+              type: "string"
+            StatusID:
+              type: "integer"
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/departments/updatedepartment/{departmentID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "create department"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "path"
+        type: "integer"
+        name: "departmentID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            DepartmentID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            DepartmentName:
+              type: "string"
+            DepartmentDescription:
+              type: "string"
+            StatusID:
+              type: "integer"
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

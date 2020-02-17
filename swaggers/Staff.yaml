@@ -10,28 +10,12 @@ tags:
 schemes:
 - "http"
 paths:
-  "/staff/test":
-    get:
-      tags:
-      - "Functions List"
-      summary: "Test"
-      parameters:
-      - in: "header"
-        type: "string"
-        name: "Authorization"
-        required: true
-  
-      responses:
-        500:
-          description: "Internal server error"
-        200:
-          description: "OK"
           
   "/staff/getprofile":
     get:
       tags:
       - "Functions List"
-      summary: "get profile"
+      summary: "Lấy thông tin hồ sơ của token truyền vào"
       parameters:
       - in: "header"
         type: "string"
@@ -48,7 +32,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get dropdown list"
+      summary: "Lấy thông tin vừa và đủ cho hồ sơ"
       parameters:
       - in: "header"
         type: "string"
@@ -69,7 +53,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "search dropdown list"
+      summary: "Tìm kiếm thông tin theo statusID hoặc keySearch hoặc dùng cả 2"
       parameters:
       - in: "header"
         type: "string"
@@ -94,7 +78,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get profile by id"
+      summary: "Lấy tất cả thông tin theo ID"
       parameters:
       - in: "header"
         type: "string"
@@ -116,7 +100,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get list company staffs"
+      summary: "Lấy tất cả danh sách nhân viên của công ty có thể truyền theo cái id của bộ phận"
       parameters:
       - in: "header"
         type: "string"
@@ -144,8 +128,8 @@ paths:
   "/staff/getlistadmins":
     get:
       tags:
-      - "Functions List"
-      summary: "get list admins"
+      - "Internal APIs"
+      summary: "Liệt kê danh sách quản trị viên"
       parameters:
       - in: "header"
         type: "string"
@@ -162,7 +146,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get header info"
+      summary: "Liệt kê thông tin nhân viên có tên công ty của Token truyền vào"
       parameters:
       - in: "header"
         type: "string"
@@ -179,7 +163,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get user manager request"
+      summary: " Liệt kê người dùng chấp thuận yêu cầu"
       parameters:
       - in: "header"
         type: "string"
@@ -196,7 +180,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get user manager request"
+      summary: "Danh sách người dùng nhận yêu cầu quản lý người dùng có thể theo ID bộ phận"
       parameters:
       - in: "header"
         type: "string"
@@ -214,33 +198,11 @@ paths:
         200:
           description: "OK"
           
-          
-  "/usertypes/search":
-    get:
-      tags:
-      - "Functions List"
-      summary: "get dropdown list"
-      parameters:
-      - in: "header"
-        type: "string"
-        name: "Authorization"
-        required: true
-      - in: "query"
-        name: "keyword"
-        type: "string"
-        required: true
-  
-      responses:
-        500:
-          description: "Internal server error"
-        200:
-          description: "OK"
-          
   "/staff/searchgroups/{staffID}":
     get:
       tags:
       - "Functions List"
-      summary: "search groups"
+      summary: "Tìm kiếm nhóm theo staffID và truyền thêm tên tìm kiếm"
       parameters:
       - in: "header"
         type: "string"
@@ -267,7 +229,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "create staff"
+      summary: "Tạo mới một nhân viên"
       parameters:
       - in: "header"
         type: "string"
@@ -304,7 +266,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get user by staffidand companyID"
+      summary: "Danh sách người tạo ra nhân viên bởi cái staffID và cái companyID truyền vào cái User Requirement ID"
       parameters:
       - in: "header"
         type: "string"
@@ -326,7 +288,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update staff"
+      summary: "Cập nhật thông tin nhân viên"
       parameters:
       - in: "header"
         type: "string"
@@ -367,7 +329,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update admin"
+      summary: "Cập nhật thông tin quản trị viên cần truyền vào ID Nhân viên"
       parameters:
       - in: "header"
         type: "string"
@@ -404,7 +366,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "delete staff"
+      summary: "Xóa nhân viên theo ID của nhân viên"
       parameters:
       - in: "header"
         type: "string"
@@ -426,7 +388,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update staff group"
+      summary: "Cập nhật thông tin nhóm theo ID nhân viên"
       parameters:
       - in: "header"
         type: "string"

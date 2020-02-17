@@ -1,0 +1,42 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "CMS Content Type"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/cmscontenttype/listcontenttypes":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list content types"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

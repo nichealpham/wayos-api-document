@@ -14,11 +14,24 @@ const options = {
 const documentAuthentication = yaml.safeLoad(fs.readFileSync('./swaggers/Authentication.yaml', 'utf8'));
 const documentStaff = yaml.safeLoad(fs.readFileSync('./swaggers/Staff.yaml', 'utf8'));
 const documentCompany = yaml.safeLoad(fs.readFileSync('./swaggers/Company.yaml', 'utf8'));
+const documentCMSCategoryNews = yaml.safeLoad(fs.readFileSync('./swaggers/CMSCategoryNews.yaml', 'utf8'));
+const documentCMSNews = yaml.safeLoad(fs.readFileSync('./swaggers/CMSCategoryNews.yaml', 'utf8'));
+const documentCMSContentType = yaml.safeLoad(fs.readFileSync('./swaggers/CMSContentType.yaml', 'utf8'));
+const documentCompanyService = yaml.safeLoad(fs.readFileSync('./swaggers/CompanyService.yaml', 'utf8'));
+const documentConfigs = yaml.safeLoad(fs.readFileSync('./swaggers/Configs.yaml', 'utf8'));
+const documentDepartment = yaml.safeLoad(fs.readFileSync('./swaggers/Department.yaml', 'utf8'));
 
 app.use(express.static('public'));
 
 app.use('/authentication', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentAuthentication, options)));
 app.use('/staff', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentStaff, options)));
 app.use('/company', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentCompany, options)));
+app.use('/cmscategorynews', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentCMSCategoryNews, options)));
+app.use('/cmsnews', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentCMSNews, options)));
+app.use('/cmscontenttype', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentCMSContentType, options)));
+app.use('/companyservice', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentCompanyService, options)));
+app.use('/configs', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentConfigs, options)));
+app.use('/departments', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentDepartment, options)));
+
 
 app.listen(3200, () => console.log("Document server started on port 3200"));

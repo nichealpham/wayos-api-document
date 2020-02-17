@@ -1,0 +1,152 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "Configs"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/configs/listconfigs":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list configs"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        name: "searchTerm"
+        type: "string"
+        required: true
+      - in: "query"
+        name: "companyID"
+        type: "integer"
+        required: true
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/configs/searchconfigdetail/{configKey}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "search config detail"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "string"
+        name: "configKey"
+        required: true
+      - in: "query"
+        name: "companyID"
+        type: "integer"
+        required: true
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/configs/createconfig":
+    post:
+      tags:
+      - "Functions List"
+      summary: "create config"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ConfigID:
+              type: "integer"
+            StatusID:
+              type: "integer"
+            ConfigKey:
+              type: "string"
+            ConfigValue:
+              type: "string"
+            TypeValue:
+              type: "string"
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/configs/updateconfig":
+    put:
+      tags:
+      - "Functions List"
+      summary: "update config"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ConfigID:
+              type: "integer"
+            StatusID:
+              type: "integer"
+            ConfigKey:
+              type: "string"
+            ConfigValue:
+              type: "string"
+            TypeValue:
+              type: "string"
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/configs/deleteconfig/{configKey}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "delete config"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "string"
+        name: "configKey"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "companyID"
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          

@@ -1,0 +1,129 @@
+swagger: "2.0"
+info:
+  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  version: "1.0.1"
+  title: "CMS Category News"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+  "/cmscategorynews/listcategorynews":
+    get:
+      tags:
+      - "Functions List"
+      summary: "list category news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+      - in: "query"
+        name: "statusID"
+        type: "integer"
+        required: true
+      - in: "query"
+        name: "category"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmscategorynews/getcategorynewsbyid/{categoryNewsID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "get category news by id"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "categoryNewsID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmscategorynews/createcategorynews":
+    post:
+      tags:
+      - "Functions List"
+      summary: "create category news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            CategoryNewsID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            ContentTypeID:
+              type: "integer"
+            ContentTypeName:
+              type: "string"
+            StatusID:
+              type: "integer"
+            CategoryNewsName:
+              type: "string"
+            CategoryNewsDescription:
+              type: "string"
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/cmscategorynews/deletecategorynews/{categoryNewsID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "delete category news"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        name: "categoryNewsID"
+        type: "integer"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
