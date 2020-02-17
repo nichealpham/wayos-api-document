@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs hỗ trợ tìm, tạo, cập nhật thông tin công ty và các dịch vụ của công ty"
   version: "1.0.1"
   title: "Company"
 host: "apiway.mavecons.com"
@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "Get Total Companys"
+      summary: "Đếm tổng số công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -31,7 +31,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "Get List Company"
+      summary: "Liệt kê danh sách thông tin của công ty có thể truyền vào keySearch hay statusID"
       parameters:
       - in: "header"
         type: "string"
@@ -66,7 +66,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get list services by company id"
+      summary: "Liệt kê danh sách dịch vụ theo ID công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -85,8 +85,8 @@ paths:
   "/companys/toggleservicebycompanyid/{serviceID}/{companyID}":
     put:
       tags:
-      - "Functions List"
-      summary: "toggle service by company id"
+      - "Internal List"
+      summary: "API này được sử dụng cho chủ sở hữu để chuyển đổi bất kỳ dịch vụ nào cho bất kỳ công ty nào"
       parameters:
       - in: "header"
         type: "string"
@@ -110,7 +110,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get dropdown list"
+      summary: "liệt kê những thứ cần thiết có thể hiền thị của các công ty "
       parameters:
       - in: "header"
         type: "string"
@@ -127,7 +127,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get list services"
+      summary: "liệt kê danh sách các dịch vụ mà công ty đăng ký"
       parameters:
       - in: "header"
         type: "string"
@@ -144,7 +144,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "toggle service"
+      summary: "Chuyển đổi dịch vụ công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -164,7 +164,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get my company"
+      summary: "Liệt kê thông in công ty của người truyền token vào"
       parameters:
       - in: "header"
         type: "string"
@@ -181,7 +181,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get company by id"
+      summary: "Liệt kê những thông tin cần thiết của 1 công ty theo ID công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -201,7 +201,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "create company"
+      summary: "Tạo mới 1 công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -242,7 +242,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update company"
+      summary: "Cập nhật thông tin của công ty thông qua ID công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -283,7 +283,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update status company"
+      summary: "Cập nhật tình trạng công ty theo ID công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -314,7 +314,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "search"
+      summary: "tìm công ty thông có thể tìm bằng từ khóa"
       parameters:
       - in: "header"
         type: "string"

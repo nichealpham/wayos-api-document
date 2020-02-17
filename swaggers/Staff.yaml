@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs hỗ trợ lấy xem, xóa, sửa, tạo mới thông tin của một nhân viên "
   version: "1.0.1"
   title: "Staff"
 host: "apiway.mavecons.com"
