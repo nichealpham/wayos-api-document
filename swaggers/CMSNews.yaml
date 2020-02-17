@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs hỗ trợ thẹm, xóa, sửa, liệt kê các tin tức của một công ty"
   version: "1.0.1"
   title: "CMS News"
 host: "apiway.mavecons.com"
@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "company list news"
+      summary: "Liệt kê danh sách tin tức của công ty mà token nhân viên được truyền vào có thể tìm theo keySearch "
       parameters:
       - in: "header"
         type: "string"
@@ -45,7 +45,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "list news"
+      summary: "Liệt kê tin tức mới nhất truyền vào keySearch,statusID,categoryNewsID"
       parameters:
       - in: "header"
         type: "string"
@@ -84,7 +84,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get news by id"
+      summary: "Liệt kê tin tức theo newsID"
       parameters:
       - in: "header"
         type: "string"
@@ -105,7 +105,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "create news"
+      summary: "Tạo mới một tin tức"
       parameters:
       - in: "header"
         type: "string"
@@ -142,7 +142,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update news"
+      summary: "Cập nhật thông tin của tin tức đã có sẵn"
       parameters:
       - in: "header"
         type: "string"
@@ -183,7 +183,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "delete news"
+      summary: "Xóa tin tức theo newsID"
       parameters:
       - in: "header"
         type: "string"

@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs hỗ trợ liệt kê, thêm, sửa, cập nhật các dịch vụ của công ty"
   version: "1.0.1"
   title: "Company Services"
 host: "apiway.mavecons.com"
@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "count"
+      summary: "Đếm tổng số dịch vụ của một công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -31,7 +31,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "list company service"
+      summary: "Liệt kê các dịch vụ của công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -58,7 +58,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "list company service by id"
+      summary: "Liệt kê các dịch vụ của công ty theo ID"
       parameters:
       - in: "header"
         type: "string"
@@ -89,7 +89,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "create company service"
+      summary: "Tạo mới một dịch vụ của công ty"
       parameters:
       - in: "header"
         type: "string"
@@ -119,7 +119,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update company service"
+      summary: "cập nhật lại thông tin của dịch vụ công ty"
       parameters:
       - in: "header"
         type: "string"

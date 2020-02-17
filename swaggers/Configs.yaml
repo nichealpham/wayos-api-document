@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs Hỗ trợ về cấu hình"
   version: "1.0.1"
   title: "Configs"
 host: "apiway.mavecons.com"
@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "list configs"
+      summary: "Danh sách các cấu hình"
       parameters:
       - in: "header"
         type: "string"
@@ -39,7 +39,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "search config detail"
+      summary: "Tìm kiếm chi tiết cấu hình theo configKey"
       parameters:
       - in: "header"
         type: "string"
@@ -64,7 +64,7 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "create config"
+      summary: "Tạo mới cấu hình"
       parameters:
       - in: "header"
         type: "string"
@@ -97,7 +97,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "update config"
+      summary: "Cập nhật cấu hình"
       parameters:
       - in: "header"
         type: "string"
@@ -130,7 +130,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "delete config"
+      summary: "Xóa cấu hình theo configKey"
       parameters:
       - in: "header"
         type: "string"

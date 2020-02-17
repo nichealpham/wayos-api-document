@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs hỗ trợ tìm, tạo, sửa tin tức"
   version: "1.0.1"
   title: "CMS Category News"
 host: "apiway.mavecons.com"
@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "list category news"
+      summary: "Danh sách các mục trong tin tức có thể truyền các keySearch, statusID và category"
       parameters:
       - in: "header"
         type: "string"
@@ -53,7 +53,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "get category news by id"
+      summary: "Danh sách tin tức theo ID truyền categoryNewsID"
       parameters:
       - in: "header"
         type: "string"
@@ -74,11 +74,52 @@ paths:
     post:
       tags:
       - "Functions List"
-      summary: "create category news"
+      summary: "Tạo mới tin tức"
       parameters:
       - in: "header"
         type: "string"
         name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            CategoryNewsID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            ContentTypeID:
+              type: "integer"
+            ContentTypeName:
+              type: "string"
+            StatusID:
+              type: "integer"
+            CategoryNewsName:
+              type: "string"
+            CategoryNewsDescription:
+              type: "string"
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+
+  "/cmscategorynews/updatecategorynews/{categoryNewsID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật tin tức truyền categoryNewsID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "integer"
+        name: "categoryNewsID"
         required: true
       - in: "body"
         name: "Body"
@@ -111,7 +152,7 @@ paths:
     put:
       tags:
       - "Functions List"
-      summary: "delete category news"
+      summary: "xóa tin tức nào đó truyền categoryNewsID"
       parameters:
       - in: "header"
         type: "string"

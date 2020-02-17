@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "APIs for handling user's authentication data when interacting with WayOS backend"
+  description: "APIs hỗ trợ xem loại nội dung của tin tức"
   version: "1.0.1"
   title: "CMS Content Type"
 host: "apiway.mavecons.com"
@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "Functions List"
-      summary: "list content types"
+      summary: "Danh sách loại nội dung của tin tức"
       parameters:
       - in: "header"
         type: "string"
