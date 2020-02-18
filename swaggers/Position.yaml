@@ -1,0 +1,145 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ hiễn thị tạo sữa các chứa vụ trong công ty"
+  version: "1.0.1"
+  title: "Position"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/position/listpositions":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách của các vị trí truyền vào keySearch,statusID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "keySearch"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "statusID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/position/dropdownlistpositions":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách của các vị trí với một thông tin vừa đủ"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+     
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/position/positionbyid/{positionID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách các chức vụ theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "positionID"
+        required: true
+     
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/position/createposition":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo mới 1 chức vụ"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            PositionID:
+              type: integer
+            CompanyID:
+              type: integer
+            PositionName:
+              type: string
+            PositionDescription:
+              type: string
+            StatusID:
+              type: integer
+     
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/position/updatestatusposition/{positionID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật trang thái chức vụ theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "positionID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            PositionID:
+              type: integer
+            CompanyID:
+              type: integer
+            PositionName:
+              type: string
+            PositionDescription:
+              type: string
+            StatusID:
+              type: integer
+     
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

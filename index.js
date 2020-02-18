@@ -20,6 +20,13 @@ const documentCMSContentType = yaml.safeLoad(fs.readFileSync('./swaggers/CMSCont
 const documentCompanyService = yaml.safeLoad(fs.readFileSync('./swaggers/CompanyService.yaml', 'utf8'));
 const documentConfigs = yaml.safeLoad(fs.readFileSync('./swaggers/Configs.yaml', 'utf8'));
 const documentDepartment = yaml.safeLoad(fs.readFileSync('./swaggers/Department.yaml', 'utf8'));
+const documentDrive = yaml.safeLoad(fs.readFileSync('./swaggers/Drive.yaml', 'utf8'));
+const documentEmail = yaml.safeLoad(fs.readFileSync('./swaggers/Email.yaml', 'utf8'));
+const documentGroup = yaml.safeLoad(fs.readFileSync('./swaggers/Group.yaml', 'utf8'));
+const documentPolicy = yaml.safeLoad(fs.readFileSync('./swaggers/Policy.yaml', 'utf8'));
+const documentPosition = yaml.safeLoad(fs.readFileSync('./swaggers/Position.yaml', 'utf8'));
+const documentReport = yaml.safeLoad(fs.readFileSync('./swaggers/Report.yaml', 'utf8'));
+
 
 app.use(express.static('public'));
 
@@ -32,6 +39,12 @@ app.use('/cmscontenttype', swaggerUi.serve, (req, res) => res.send(swaggerUi.gen
 app.use('/companyservice', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentCompanyService, options)));
 app.use('/configs', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentConfigs, options)));
 app.use('/departments', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentDepartment, options)));
+app.use('/drive', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentDrive, options)));
+app.use('/sentemail', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentEmail, options)));
+app.use('/group', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentGroup, options)));
+app.use('/policy', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentPolicy, options)));
+app.use('/position', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentPosition, options)));
+app.use('/', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentReport, options)));
 
 
 app.listen(3200, () => console.log("Document server started on port 3200"));

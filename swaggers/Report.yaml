@@ -1,0 +1,251 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê hoặc download danh sách nhân viên mới,sinh nhật ,thâm niên trong thời gian ta truyền vào "
+  version: "1.0.1"
+  title: "Report"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/listnewstaffs/export":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Download liệt kê danh sách nhân viên mới truyền vào fromdate,todate"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        type: "string"
+        name: "fromdate"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "todate"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/listnewstaffs":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách nhân viên mới"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/listdateoffs/export":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Download liệt kê danh sách nhân viên nghĩ việc truyền vào fromdate,todate"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        type: "string"
+        name: "fromdate"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "todate"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/listdateoffs":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách nhân viên nghỉ việc"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            fromdate:
+              type: "string"
+            todate:
+              type: "string"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/listsenioritys/export":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Download liệt kê danh sách nhân viên có thâm niên đến todate"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        type: "string"
+        name: "todate"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/listbirthdays":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách nhân viên có sinh nhật vào những ngày mà truyền vào"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            fromdate:
+              type: "string"
+            todate:
+              type: "string"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+  
+          
+  "/listsenioritys":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách nhân viên có thâm niên đến ngày truyền vào"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            todate:
+              type: "string"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/listbirthdays/export":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Download liệt kê danh sách nhân viên có thâm niên truyền vào fromdate,todate"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        type: "string"
+        name: "todate"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

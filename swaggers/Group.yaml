@@ -1,0 +1,360 @@
+swagger: "2.0"
+info:
+  description: "APIs về nhóm và nhân viên trong nhóm"
+  version: "1.0.1"
+  title: "Group"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/group/listgroups":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê cái nhóm truyền vào keySearch,statusID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        name: "keySearch"
+        type: "string"
+        required: true
+      - in: "query"
+        name: "statusID"
+        type: "integer"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/group/searchmembers/{groupID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Tìm kiếm thành viên trong nhóm theo groupID và truyền vào departmentID,positionID,searchText"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "departmentID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "positionID"
+        required: true
+      - in: "query"
+        name: "searchText"
+        type: "string"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/group/groupbyid/{groupID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê nhóm theo groupID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/group/creategroup":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo mới một nhóm"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            GroupID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            GroupName:
+              type: "string"
+            GroupDescription:
+              type: "string"
+            StatusID:
+              type: "integer"
+            MemberCounts:
+              type: "integer"
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/group/updategroup/{groupID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật một nhóm theo groupID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            GroupID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            GroupName:
+              type: "string"
+            GroupDescription:
+              type: "string"
+            StatusID:
+              type: "integer"
+            MemberCounts:
+              type: "integer"
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/group/updatestatusgroup/{groupID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật trạng thái nhóm theo groupID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            GroupID:
+              type: "integer"
+            CompanyID:
+              type: "integer"
+            GroupName:
+              type: "string"
+            GroupDescription:
+              type: "string"
+            StatusID:
+              type: "integer"
+            MemberCounts:
+              type: "integer"
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/groupstaff/creategroup":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo nhân viên trong nhóm"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            GroupStaffID:
+              type: "integer"
+            GroupID:
+              type: "integer"
+            StaffID:
+              type: "integer"
+            StatusID:
+              type: "integer"
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/groupstaff/updatestatusgroupstaff/{groupstaffID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật trạng thái nhân viên trong nhóm theo groupstaffID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupstaffID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            GroupID:
+              type: "integer"
+            StaffID:
+              type: "integer"
+            StatusID:
+              type: "integer"
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/groupstaff/liststaffingroupbyid/{groupstaffID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Nhận danh sách nhân viên trong nhóm theo groupstaffID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupstaffID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/groupstaff/listgroupinstaffbyid/{staffID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Nhận danh sách nhóm trong nhân viên theo staffID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "staffID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

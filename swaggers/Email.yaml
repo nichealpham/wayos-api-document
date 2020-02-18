@@ -1,0 +1,72 @@
+swagger: "2.0"
+info:
+  description: "APIs Về việc gởi mail"
+  version: "1.0.1"
+  title: "Email"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/sentemail/sentemailapprove/{staffID}":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Gởi mail chấp nhận theo staffID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "staffID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            subject:
+              type: string
+            content:
+              type: string
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/sentemail/sentemail":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Gởi mail"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            subject:
+              type: string
+            content:
+              type: string
+            email:
+              type: string
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

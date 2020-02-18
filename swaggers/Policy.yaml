@@ -1,0 +1,187 @@
+swagger: "2.0"
+info:
+  description: "APIs về các chính sach modun"
+  version: "1.0.1"
+  title: "Policy"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/policy/getlistgroupmodules":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê các modun trong nhóm truyền vào serviceID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "serviceID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/policy/getlistpolicymodules":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê các modun chính sách truyền vào staffID,groupID,serviceID,groupModuleID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "staffID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "groupID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "serviceID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "groupModuleID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/policy/getlistallowedservices":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách dịch vụ được phép thực hiện"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/policy/getlistclaimnames":
+    get:
+      tags:
+      - "Functions List"
+      summary: "liệt kê danh sách yêu cầu của nhân viên truyền vào servicesID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "servicesID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/policy/updatepolicypermissions":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật quyền chính sách"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ListItems:
+              type: "array"
+              items: 
+                type: "object"
+                properties:
+                  PolicyModuleID:
+                    type: "integer"
+                  AccessAllowed: 
+                    type: "boolean"
+                  StaffID:
+                    type: "integer"
+                  GroupID:
+                    type: "integer"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/policy/updateallpolicypermissions":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật tất cả các quyền chính sách"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "boolean"
+        name: "accessAllowed"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "staffID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "groupID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "servicesID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "groupModuleID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

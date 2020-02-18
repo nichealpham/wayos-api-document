@@ -1,0 +1,530 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ về các ỗ đĩa lưu trữ dữ liệu"
+  version: "1.0.1"
+  title: "Drive"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/drive/listdrives":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách ổ đĩa lưu trữ dữ liệu"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/drivedefault":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê ổ đĩa lưu trữ dữ liệu mặc định"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/drivebyid/{driveID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách ổ đĩa lưu trữ dữ liệu theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/folderpath":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê đường dẫn thư mục truyền vào folderID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "folderID"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/filefolderpath":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê đường dẫn thư mục tệp truyền vào filePublicPath"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "query"
+        type: "string"
+        name: "filePublicPath"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/searchchildrenitems/{driveID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Tìm kiếm thư mục ỗ đĩa trẻ em theo driveID và truyền searchTerm,folderID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "searchTerm"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "folderID"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/childrenitems/{driveID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê ỗ đĩa trẻ em theo driveID và truyền folderID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "folderID"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/folderitems/{driveID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê ỗ đĩa thư mục theo driveID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/breakcrumitems":
+    get:
+      tags:
+      - "Functions List"
+      summary: "breakcrumitems"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "folderID"
+        required: true
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/createprivatefolder/{driveID}":
+    post:
+      tags:
+      - "Functions List"
+      summary: "tạo mới thư mục cá nhân theo driveID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            FolderID:
+              type: integer
+            FolderName:
+              type: string
+            FolderDescription:
+              type: string
+            StatusID:
+              type: integer
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/createcompanyfolder/{driveID}":
+    post:
+      tags:
+      - "Functions List"
+      summary: "tạo mới thư mục công ty theo driveID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            FolderID:
+              type: integer
+            FolderName:
+              type: string
+            FolderDescription:
+              type: string
+            StatusID:
+              type: integer
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/createfile/{driveID}":
+    post:
+      tags:
+      - "Functions List"
+      summary: "tạo mới tập tin theo driveID truyền folderID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "folderID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            FileFolderID:
+              type: integer
+            FileID:
+              type: integer
+            FileName:
+              type: string
+            FileMimeType:
+              type: string
+            FilePublicPath:
+              type: string
+            StatusID:
+              type: integer
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/removechildrenitem/{driveID}":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Xóa ổ đĩa trẻ em theo driveID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ItemID:
+              type: integer
+            ItemType:
+              type: integer
+            ItemName:
+              type: string
+            FolderPath:
+              type: string
+            MimeType:
+              type: string
+            PublicPath:
+              type: string
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/unsharefilefolder/{driveID}":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Hủy chia sẽ các thư mục"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ItemID:
+              type: integer
+            ItemType:
+              type: integer
+            ItemName:
+              type: string
+            FolderPath:
+              type: string
+            MimeType:
+              type: string
+            PublicPath:
+              type: string
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/renamechildrenitem/{driveID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Đổi tên ổ đĩa trẻ em theo driveID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ItemID:
+              type: integer
+            ItemType:
+              type: integer
+            ItemName:
+              type: string
+            FolderPath:
+              type: string
+            MimeType:
+              type: string
+            PublicPath:
+              type: string
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/movechildrenitem/{driveID}/{targetDriveID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Di chuyển ổ đĩa trẻ em theo driveID,targetDriveID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "driveID"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "targetDriveID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "targetFolderID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ItemID:
+              type: integer
+            ItemType:
+              type: integer
+            ItemName:
+              type: string
+            FolderPath:
+              type: string
+            MimeType:
+              type: string
+            PublicPath:
+              type: string
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/drive/reportquantity":
+    get:
+      tags:
+      - "Functions List"
+      summary: "reportquantity"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
