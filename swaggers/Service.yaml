@@ -1,0 +1,242 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê, tạo mới, cập nhật, tìm kiếm dịch vụ "
+  version: "1.0.1"
+  title: "Service"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/services/count":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Đếm tổng số dịch vụ"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/services/listservices":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách các dịch vụ"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/services/servicebyid/{serviceID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách quá trình theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "serviceID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/services/createservice":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo mới 1 dịch vụ"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ServicesID:
+              type: "integer"
+            ServicesName:
+              type: "string"
+            ServicesDomain:
+              type: "string"
+            ServicesDescription:
+              type: "string"
+            IconName:
+              type: "string"
+            StatusID:
+              type: "integer"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/services/updateservice/{serviceID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật quy trình theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "serviceID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ServicesID:
+              type: "integer"
+            ServicesName:
+              type: "string"
+            ServicesDomain:
+              type: "string"
+            ServicesDescription:
+              type: "string"
+            IconName:
+              type: "string"
+            StatusID:
+              type: "integer"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/services/updatestatusservice/{serviceID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật trạng thái quy trình theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "serviceID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            ServicesID:
+              type: "integer"
+            ServicesName:
+              type: "string"
+            ServicesDomain:
+              type: "string"
+            ServicesDescription:
+              type: "string"
+            IconName:
+              type: "string"
+            StatusID:
+              type: "integer"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/services/search":
+    get:
+      tags:
+      - "Functions List"
+      summary: "tìm kiếm quá trình"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "keyword"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          

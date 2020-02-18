@@ -1,0 +1,375 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ về quy trình làm việc "
+  version: "1.0.1"
+  title: "Work Flow"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/workflow/listWorkflowsearch":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách tìm kiếm công việc"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "typeWorkFlowID"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "keySearch"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "statusID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/listWorkflowneedmyapproval":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách công việc được tôi chấp thuận"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/listWorkflowapprovedbyme":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách công việc được chấp thuận bởi tôi"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/listWorkflowcreatedbyme":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách công việc được tôi tạo ra"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/createworkflow":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo quy trình công việc phê duyệt"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            WorkFlowID:
+              type: integer
+            TypeWorkFlowID:
+              type: integer
+            TypeWorkFlowName:
+              type: string
+            IsDetailList:
+              type: integer
+            Title:
+              type: string
+            FieldDetails:
+              type: integer
+            UserRequirementID:
+              type: integer
+            UserRequirementName:
+              type: string
+            DepartmentUserRequirement:
+              type: string
+            StatusID:
+              type: integer
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/getworkflowbyid/{workFlowID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách công việc theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/forwardworkflow/{workFlowID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật luồng công việc của người dùng"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "userForwardID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/updateworkflow/{workFlowID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "cập nhật luồng công việc"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            WorkFlowID:
+              type: integer
+            TypeWorkFlowID:
+              type: integer
+            TypeWorkFlowName:
+              type: string
+            IsDetailList:
+              type: integer
+            Title:
+              type: string
+            FieldDetails:
+              type: string
+            UserRequirementID:
+              type: integer
+            UserRequirementName:
+              type: string
+            DepartmentUserRequirement:
+              type: string
+            StatusID:
+              type: integer
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/updatestatusworkFlow/{workFlowID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "cập nhậttrạng thái luồng công việc"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            WorkFlowID:
+              type: integer
+            TypeWorkFlowID:
+              type: integer
+            TypeWorkFlowName:
+              type: string
+            IsDetailList:
+              type: integer
+            Title:
+              type: string
+            FieldDetails:
+              type: string
+            UserRequirementID:
+              type: integer
+            UserRequirementName:
+              type: string
+            DepartmentUserRequirement:
+              type: string
+            StatusID:
+              type: integer
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/createworkflowapprove":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo quy trình công việc phê duyệt"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            WorkFlowApproveID:
+              type: integer
+            SectionName:
+              type: string
+            WorkFlowID:
+              type: string
+            UserApproveID:
+              type: integer
+            UserApproveName:
+              type: string
+            DepartmentApproveID:
+              type: integer
+            DepartmentApproveName:
+              type: string
+            UserForwardID:
+              type: integer
+            UserForwardName:
+              type: string
+            DateApprove:
+              type: string
+            IsApprove:
+              type: integer
+            StatusID:
+              type: integer
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/workflow/listworkflowapprove/{workFlowID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê luông công việc đã chấp thuận"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  

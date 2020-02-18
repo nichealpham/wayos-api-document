@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê, tạo mới các bình luận "
+  version: "1.0.1"
+  title: "Request Comment"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/requestcomment/getrequestcommentbyid":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách1 yêu cầu bình luận"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "RequestProcessID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "WorkFlowID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestcomment/getrequestcommentchat":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận trò chuyện"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "RequestProcessID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "WorkFlowID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestcomment/getlistrequestcommentbyworkflowid/{workFlowID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

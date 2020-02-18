@@ -1,0 +1,200 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê, tạo mới, cập nhật, tìm kiếm loại người dùng "
+  version: "1.0.1"
+  title: "User Type"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/usertypes/count":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Tổng số nhân viên"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/usertypes/listusertype":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê loại người dùng"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/usertypes/usertypebyid/{usertypeID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách loại công việc theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "usertypeID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/usertypes/createusertype":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo mới loại người dùng"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            UsertypeName:
+              type: string
+            UsertypeDescription:
+              type: string
+            UserName:
+              type: string
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/usertypes/updateusertype/{usertypeID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "cập nhật loại người dùng"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "usertypeID"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            UsertypeName:
+              type: string
+            UsertypeDescription:
+              type: string
+            UserName:
+              type: string
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/usertypes/search":
+    get:
+      tags:
+      - "Functions List"
+      summary: "tìm kiếm loại người dùng"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "keyword"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"

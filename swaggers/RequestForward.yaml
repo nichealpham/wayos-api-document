@@ -1,0 +1,38 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê, tạo mới yêu cầu chuyển tiếp "
+  version: "1.0.1"
+  title: "Request Forward"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/requestforward/listrequestforward":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu chuyển tiếp"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "keySearch"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "statusID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          

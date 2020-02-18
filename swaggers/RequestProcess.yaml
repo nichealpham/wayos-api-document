@@ -1,0 +1,134 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê, tạo mới, cập nhật quy trình xét duyệt "
+  version: "1.0.1"
+  title: "Request Process"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/requestprocess/listprocesscreatedbyme":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách quá trình được tạo bởi tôi"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/listprocessneedmyapproval":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách quá trình được tạo chấp nhận bởi tôi"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/listprocess":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách quá trình"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "string"
+        name: "keySearch"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "statusID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/getuserapproverequest/{processID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu phê duyệt của người dùng"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "processID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/getprocessbyid/{processID}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách quy trình theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "processID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          

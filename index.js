@@ -26,6 +26,14 @@ const documentGroup = yaml.safeLoad(fs.readFileSync('./swaggers/Group.yaml', 'ut
 const documentPolicy = yaml.safeLoad(fs.readFileSync('./swaggers/Policy.yaml', 'utf8'));
 const documentPosition = yaml.safeLoad(fs.readFileSync('./swaggers/Position.yaml', 'utf8'));
 const documentReport = yaml.safeLoad(fs.readFileSync('./swaggers/Report.yaml', 'utf8'));
+const documentRequestAttachment = yaml.safeLoad(fs.readFileSync('./swaggers/RequestAttachment.yaml', 'utf8'));
+const documentRequestComment = yaml.safeLoad(fs.readFileSync('./swaggers/RequestComment.yaml', 'utf8'));
+const documentRequestForward = yaml.safeLoad(fs.readFileSync('./swaggers/RequestForward.yaml', 'utf8'));
+const documentRequestProcess = yaml.safeLoad(fs.readFileSync('./swaggers/RequestProcess.yaml', 'utf8'));
+const documentService = yaml.safeLoad(fs.readFileSync('./swaggers/Service.yaml', 'utf8'));
+const documentTypeWord = yaml.safeLoad(fs.readFileSync('./swaggers/TypeWord.yaml', 'utf8'));
+const documentUserType = yaml.safeLoad(fs.readFileSync('./swaggers/UserType.yaml', 'utf8'));
+const documentWorkFlow = yaml.safeLoad(fs.readFileSync('./swaggers/WorkFlow.yaml', 'utf8'));
 
 
 app.use(express.static('public'));
@@ -45,6 +53,15 @@ app.use('/group', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML
 app.use('/policy', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentPolicy, options)));
 app.use('/position', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentPosition, options)));
 app.use('/', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentReport, options)));
+app.use('/requestattachment', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentRequestAttachment, options)));
+app.use('/requestcomment', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentRequestComment, options)));
+app.use('/requestforward', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentRequestForward, options)));
+app.use('/requestprocess', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentRequestProcess, options)));
+app.use('/service', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentService, options)));
+app.use('/typewordflow', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentTypeWord, options)));
+app.use('/wordflowconfigs', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentTypeWord, options)));
+app.use('/usertypes', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentUserType, options)));
+app.use('/workflow', swaggerUi.serve, (req, res) => res.send(swaggerUi.generateHTML(documentWorkFlow, options)));
 
 
 app.listen(3200, () => console.log("Document server started on port 3200"));

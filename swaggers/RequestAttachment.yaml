@@ -1,0 +1,99 @@
+swagger: "2.0"
+info:
+  description: "APIs hỗ trợ liệt kê, tạo mới, cập nhật các tệp đính kèm "
+  version: "1.0.1"
+  title: "Request Attachment"
+host: "apiway.mavecons.com"
+basePath: "/api"
+tags:
+- name: "Functions List"
+schemes:
+- "http"
+paths:
+          
+  "/requestattachment/listattachments":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách các tệp đính kèm"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "processID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestattachment/createattachment":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Tạo mới một tệp đính kèm"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            AttachmentID:
+              type: "integer"
+            FileName:
+              type: "string"
+            FilePath:
+              type: "string"
+            StatusID:
+              type: "integer"
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestattachment/updatestatusattachment":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật trạng thái tệp đính kèm"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "processID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "attachmentID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  
