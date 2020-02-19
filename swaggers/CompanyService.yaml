@@ -99,16 +99,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            CompanyServiceID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            ServicesID:
-              type: "integer"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/CompanyServices'
       responses:
         500:
           description: "Internal server error"
@@ -143,19 +134,22 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            CompanyServiceID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            ServicesID:
-              type: "integer"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/CompanyServices'
       responses:
         500:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  CompanyServices:
+    properties:
+      CompanyServiceID:
+              type: "integer"
+      CompanyID:
+              type: "integer"
+      ServicesID:
+              type: "integer"
+      StatusID:
+              type: "integer"
           

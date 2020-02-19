@@ -211,22 +211,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            CompanyID:
-              type: "integer"
-            Logo:
-              type: "string"
-            CompanyName:
-              type: "string"
-            CompanyDescription:
-              type: "string"
-            Address:
-              type: "string"
-            Phone:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/CompanyModel'
       
       responses:
         500:
@@ -252,22 +237,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            CompanyID:
-              type: "integer"
-            Logo:
-              type: "string"
-            CompanyName:
-              type: "string"
-            CompanyDescription:
-              type: "string"
-            Address:
-              type: "string"
-            Phone:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/CompanyModel'
       
       responses:
         500:
@@ -293,12 +263,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            StaffFullName:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/Updatestatuscompany'
       
       responses:
         500:
@@ -326,3 +291,27 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  CompanyModel:
+    properties:
+      CompanyID:
+        type: "integer"
+      Logo:
+        type: "string"
+      CompanyName:
+        type: "string"
+      CompanyDescription:
+        type: "string"
+      Address:
+        type: "string"
+      Phone:
+        type: "string"
+      StatusID:
+        type: "integer"
+  Updatestatuscompany:
+    properties:
+      StaffFullName:
+          type: "string"
+      StatusID:
+          type: "integer"
