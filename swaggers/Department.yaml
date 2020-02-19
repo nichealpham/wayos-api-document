@@ -164,18 +164,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            DepartmentID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            DepartmentName:
-              type: "string"
-            DepartmentDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/Department'
   
       responses:
         500:
@@ -211,21 +200,24 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            DepartmentID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            DepartmentName:
-              type: "string"
-            DepartmentDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/Department'
   
       responses:
         500:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  Department:
+    properties:
+      DepartmentID:
+              type: "integer"
+      CompanyID:
+              type: "integer"
+      DepartmentName:
+              type: "string"
+      DepartmentDescription:
+              type: "string"
+      StatusID:
+              type: "integer"

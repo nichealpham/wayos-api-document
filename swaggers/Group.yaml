@@ -79,6 +79,31 @@ paths:
         200:
           description: "OK"
           
+  "/group/updatemembers/{groupID}":
+   put:
+      tags:
+      - "Functions List"
+      summary: "Tạo mới một nhóm"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "groupID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/GroupOfMemberUpdateBody'
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
   "/group/groupbyid/{groupID}":
     get:
       tags:
@@ -114,20 +139,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            GroupID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            GroupName:
-              type: "string"
-            GroupDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
-            MemberCounts:
-              type: "integer"
+            $ref: '#/definitions/GroupModels'
       
       responses:
         500:
@@ -153,20 +165,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            GroupID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            GroupName:
-              type: "string"
-            GroupDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
-            MemberCounts:
-              type: "integer"
+            $ref: '#/definitions/GroupModels'
       
       responses:
         500:
@@ -192,20 +191,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            GroupID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            GroupName:
-              type: "string"
-            GroupDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
-            MemberCounts:
-              type: "integer"
+            $ref: '#/definitions/GroupModels'
       
       responses:
         500:
@@ -237,16 +223,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            GroupStaffID:
-              type: "integer"
-            GroupID:
-              type: "integer"
-            StaffID:
-              type: "integer"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/GroupStaffModels'
       
       responses:
         500:
@@ -282,14 +259,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            GroupID:
-              type: "integer"
-            StaffID:
-              type: "integer"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/GroupStaffModels'
       
       responses:
         500:
@@ -358,3 +328,53 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+          
+definitions:
+  GroupOfMemberUpdateBody:
+    properties:
+      ListItems:
+              type: "array"
+              items: 
+                type: "object"
+                properties:
+                  StaffID:
+                    type: "integer"
+                  StaffCode:
+                    type: "string"
+                  Email:
+                    type: "string"
+                  FullName: 
+                    type: "string"
+                  ImagesPath:
+                    type: "string"
+                  AccessAllowed: 
+                    type: "boolean"
+                  GroupID:
+                    type: "integer"
+                    
+  GroupModels:
+    properties:
+      GroupID:
+              type: "integer"
+      CompanyID:
+              type: "integer"
+      GroupName:
+              type: "string"
+      GroupDescription:
+              type: "string"
+      StatusID:
+              type: "integer"
+      MemberCounts:
+              type: "integer"
+              
+  GroupStaffModels:
+    properties:
+      GroupStaffID:
+              type: "integer"
+      GroupID:
+              type: "integer"
+      StaffID:
+              type: "integer"
+      StatusID:
+              type: "integer"

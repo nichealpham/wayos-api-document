@@ -252,16 +252,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            FolderID:
-              type: integer
-            FolderName:
-              type: string
-            FolderDescription:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/DriverFoldersModel'
             
       responses:
         500:
@@ -287,16 +278,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            FolderID:
-              type: integer
-            FolderName:
-              type: string
-            FolderDescription:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/DriverFoldersModel'
             
       responses:
         500:
@@ -326,20 +308,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            FileFolderID:
-              type: integer
-            FileID:
-              type: integer
-            FileName:
-              type: string
-            FileMimeType:
-              type: string
-            FilePublicPath:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/DriverFileFoldersModel'
             
       responses:
         500:
@@ -365,20 +334,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ItemID:
-              type: integer
-            ItemType:
-              type: integer
-            ItemName:
-              type: string
-            FolderPath:
-              type: string
-            MimeType:
-              type: string
-            PublicPath:
-              type: string
+            $ref: '#/definitions/DriverFolderChildrenItem'
             
       responses:
         500:
@@ -404,20 +360,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ItemID:
-              type: integer
-            ItemType:
-              type: integer
-            ItemName:
-              type: string
-            FolderPath:
-              type: string
-            MimeType:
-              type: string
-            PublicPath:
-              type: string
+            $ref: '#/definitions/DriverFolderChildrenItem'
             
       responses:
         500:
@@ -443,20 +386,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ItemID:
-              type: integer
-            ItemType:
-              type: integer
-            ItemName:
-              type: string
-            FolderPath:
-              type: string
-            MimeType:
-              type: string
-            PublicPath:
-              type: string
+            $ref: '#/definitions/DriverFolderChildrenItem'
             
       responses:
         500:
@@ -490,20 +420,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ItemID:
-              type: integer
-            ItemType:
-              type: integer
-            ItemName:
-              type: string
-            FolderPath:
-              type: string
-            MimeType:
-              type: string
-            PublicPath:
-              type: string
+            $ref: '#/definitions/DriverFolderChildrenItem'
             
       responses:
         500:
@@ -527,4 +444,47 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  DriverFoldersModel:
+    properties:
+      FolderID:
+              type: integer
+      FolderName:
+              type: string
+      FolderDescription:
+              type: string
+      StatusID:
+              type: integer
+              
+  DriverFileFoldersModel:
+    properties:
+      FileFolderID:
+              type: integer
+      FileID:
+              type: integer
+      FileName:
+              type: string
+      FileMimeType:
+              type: string
+      FilePublicPath:
+              type: string
+      StatusID:
+              type: integer
+              
+  DriverFolderChildrenItem:
+    properties:
+      ItemID:
+              type: integer
+      ItemType:
+              type: integer
+      ItemName:
+              type: string
+      FolderPath:
+              type: string
+      MimeType:
+              type: string
+      PublicPath:
+              type: string
+          
           

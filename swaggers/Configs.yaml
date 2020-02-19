@@ -74,18 +74,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ConfigID:
-              type: "integer"
-            StatusID:
-              type: "integer"
-            ConfigKey:
-              type: "string"
-            ConfigValue:
-              type: "string"
-            TypeValue:
-              type: "string"
+            $ref: '#/definitions/ConfigsModel'
               
       responses:
         500:
@@ -107,18 +96,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ConfigID:
-              type: "integer"
-            StatusID:
-              type: "integer"
-            ConfigKey:
-              type: "string"
-            ConfigValue:
-              type: "string"
-            TypeValue:
-              type: "string"
+            $ref: '#/definitions/ConfigsModel'
               
       responses:
         500:
@@ -149,4 +127,18 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  ConfigsModel:
+    properties:
+      ConfigID:
+              type: "integer"
+      StatusID:
+              type: "integer"
+      ConfigKey:
+              type: "string"
+      ConfigValue:
+              type: "string"
+      TypeValue:
+              type: "string"
           

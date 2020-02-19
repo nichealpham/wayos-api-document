@@ -84,22 +84,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            CategoryNewsID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            ContentTypeID:
-              type: "integer"
-            ContentTypeName:
-              type: "string"
-            StatusID:
-              type: "integer"
-            CategoryNewsName:
-              type: "string"
-            CategoryNewsDescription:
-              type: "string"
+            $ref: '#/definitions/CMSCategoryNewsModel'
   
       responses:
         500:
@@ -125,22 +110,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            CategoryNewsID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            ContentTypeID:
-              type: "integer"
-            ContentTypeName:
-              type: "string"
-            StatusID:
-              type: "integer"
-            CategoryNewsName:
-              type: "string"
-            CategoryNewsDescription:
-              type: "string"
+            $ref: '#/definitions/CMSCategoryNewsModel'
   
       responses:
         500:
@@ -168,3 +138,21 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  CMSCategoryNewsModel:
+    properties:
+      CategoryNewsID:
+              type: "integer"
+      CompanyID:
+              type: "integer"
+      ContentTypeID:
+              type: "integer"
+      ContentTypeName:
+              type: "string"
+      StatusID:
+              type: "integer"
+      CategoryNewsName:
+              type: "string"
+      CategoryNewsDescription:
+              type: "string"

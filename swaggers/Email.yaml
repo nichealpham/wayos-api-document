@@ -29,12 +29,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            subject:
-              type: string
-            content:
-              type: string
+            $ref: '#/definitions/sentemailapprove'
             
       responses:
         500:
@@ -56,17 +51,27 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            subject:
-              type: string
-            content:
-              type: string
-            email:
-              type: string
+            $ref: '#/definitions/sentemail'
             
       responses:
         500:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  sentemailapprove:
+    properties:
+      subject:
+              type: string
+      content:
+              type: string
+              
+  sentemail:
+    properties:
+      subject:
+              type: string
+      content:
+              type: string
+      email:
+              type: string
