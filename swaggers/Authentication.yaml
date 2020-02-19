@@ -21,12 +21,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            StaffCode:
-              type: string
-            Passwords:
-              type: string
+            $ref: '#/definitions/UserLoginModel'
       responses:
         500:
           description: "Internal server error"
@@ -102,7 +97,7 @@ paths:
         200:
           description: "OK
           
-  "/authentication/switchcompany/{companyID}:
+  "/authentication/switchcompany/{companyID}":
     post:
       tags:
       - "Internal APIs"
@@ -124,5 +119,13 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  UserLoginModel:
+    properties:
+      StaffCode:
+        type: string
+      Passwords:
+        type: string
 
   
