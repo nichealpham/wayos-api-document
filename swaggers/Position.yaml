@@ -88,18 +88,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            PositionID:
-              type: integer
-            CompanyID:
-              type: integer
-            PositionName:
-              type: string
-            PositionDescription:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/PositionModel'
      
       responses:
         500:
@@ -125,21 +114,25 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            PositionID:
-              type: integer
-            CompanyID:
-              type: integer
-            PositionName:
-              type: string
-            PositionDescription:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/PositionModel'
      
       responses:
         500:
           description: "Internal server error"
         200:
           description: "OK"
+          
+          
+definitions:
+  PositionModel:
+    properties:
+      PositionID:
+              type: integer
+      CompanyID:
+              type: integer
+      PositionName:
+              type: string
+      PositionDescription:
+              type: string
+      StatusID:
+              type: integer

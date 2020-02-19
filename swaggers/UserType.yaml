@@ -110,14 +110,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            UsertypeName:
-              type: string
-            UsertypeDescription:
-              type: string
-            UserName:
-              type: string
+            $ref: '#/definitions/UserType'
         
       responses:
         500:
@@ -153,14 +146,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            UsertypeName:
-              type: string
-            UsertypeDescription:
-              type: string
-            UserName:
-              type: string
+            $ref: '#/definitions/UserType'
         
       responses:
         500:
@@ -198,3 +184,14 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+          
+definitions:
+  UserType:
+    properties:
+      UsertypeName:
+              type: string
+      UsertypeDescription:
+              type: string
+      UserName:
+              type: string

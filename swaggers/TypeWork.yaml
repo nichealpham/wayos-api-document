@@ -118,20 +118,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            TypeWorkFlowID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            TypeWorkFlowName:
-              type: "string"
-            IsDetailList:
-              type: "string"
-            TypeWorkFlowDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/TypeWorkFlowModel'
         
       responses:
         500:
@@ -157,20 +144,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            TypeWorkFlowID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            TypeWorkFlowName:
-              type: "string"
-            IsDetailList:
-              type: "string"
-            TypeWorkFlowDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/TypeWorkFlowModel'
         
       responses:
         500:
@@ -206,20 +180,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            TypeWorkFlowID:
-              type: "integer"
-            CompanyID:
-              type: "integer"
-            TypeWorkFlowName:
-              type: "string"
-            IsDetailList:
-              type: "string"
-            TypeWorkFlowDescription:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/TypeWorkFlowModel'
         
       responses:
         500:
@@ -272,24 +233,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ConfigID:
-              type: "integer"
-            SectionName:
-              type: "string"
-            TypeWorkFlowID:
-              type: "integer"
-            UserApproveID:
-              type: "integer"
-            UserApproveName:
-              type: "string"
-            DepartmentApproveID:
-              type: "integer"
-            DepartmentApproveName:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/WorkFlowConfigModel'
         
       responses:
         500:
@@ -315,24 +259,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ConfigID:
-              type: "integer"
-            SectionName:
-              type: "string"
-            TypeWorkFlowID:
-              type: "integer"
-            UserApproveID:
-              type: "integer"
-            UserApproveName:
-              type: "string"
-            DepartmentApproveID:
-              type: "integer"
-            DepartmentApproveName:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/WorkFlowConfigModel'
         
       responses:
         500:
@@ -360,4 +287,40 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  TypeWorkFlowModel:
+    properties:
+      TypeWorkFlowID:
+              type: "integer"
+      CompanyID:
+              type: "integer"
+      TypeWorkFlowName:
+              type: "string"
+      IsDetailList:
+              type: "string"
+      TypeWorkFlowDescription:
+              type: "string"
+      StatusID:
+              type: "integer"
+              
+  WorkFlowConfigModel:
+    properties:
+      ConfigID:
+              type: "integer"
+      SectionName:
+              type: "string"
+      TypeWorkFlowID:
+              type: "integer"
+      UserApproveID:
+              type: "integer"
+      UserApproveName:
+              type: "string"
+      DepartmentApproveID:
+              type: "integer"
+      DepartmentApproveName:
+              type: "string"
+      StatusID:
+              type: "integer"
+          
           

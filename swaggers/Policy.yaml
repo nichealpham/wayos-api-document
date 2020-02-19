@@ -127,21 +127,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ListItems:
-              type: "array"
-              items: 
-                type: "object"
-                properties:
-                  PolicyModuleID:
-                    type: "integer"
-                  AccessAllowed: 
-                    type: "boolean"
-                  StaffID:
-                    type: "integer"
-                  GroupID:
-                    type: "integer"
+            $ref: '#/definitions/PolicyPermissionUpdateModel'
         
       responses:
         500:
@@ -185,3 +171,15 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  PolicyPermissionUpdateModel:
+    properties:
+      PolicyModuleID:
+                    type: "integer"
+      AccessAllowed: 
+                    type: "boolean"
+      StaffID:
+                    type: "integer"
+      GroupID:
+                    type: "integer"

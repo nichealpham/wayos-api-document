@@ -135,28 +135,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            WorkFlowID:
-              type: integer
-            TypeWorkFlowID:
-              type: integer
-            TypeWorkFlowName:
-              type: string
-            IsDetailList:
-              type: integer
-            Title:
-              type: string
-            FieldDetails:
-              type: integer
-            UserRequirementID:
-              type: integer
-            UserRequirementName:
-              type: string
-            DepartmentUserRequirement:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/WorkFlowModel'
         
       responses:
         500:
@@ -228,28 +207,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            WorkFlowID:
-              type: integer
-            TypeWorkFlowID:
-              type: integer
-            TypeWorkFlowName:
-              type: string
-            IsDetailList:
-              type: integer
-            Title:
-              type: string
-            FieldDetails:
-              type: string
-            UserRequirementID:
-              type: integer
-            UserRequirementName:
-              type: string
-            DepartmentUserRequirement:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/WorkFlowModel'
         
       responses:
         500:
@@ -275,28 +233,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            WorkFlowID:
-              type: integer
-            TypeWorkFlowID:
-              type: integer
-            TypeWorkFlowName:
-              type: string
-            IsDetailList:
-              type: integer
-            Title:
-              type: string
-            FieldDetails:
-              type: string
-            UserRequirementID:
-              type: integer
-            UserRequirementName:
-              type: string
-            DepartmentUserRequirement:
-              type: string
-            StatusID:
-              type: integer
+            $ref: '#/definitions/WorkFlowModel'
         
       responses:
         500:
@@ -318,32 +255,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            WorkFlowApproveID:
-              type: integer
-            SectionName:
-              type: string
-            WorkFlowID:
-              type: string
-            UserApproveID:
-              type: integer
-            UserApproveName:
-              type: string
-            DepartmentApproveID:
-              type: integer
-            DepartmentApproveName:
-              type: string
-            UserForwardID:
-              type: integer
-            UserForwardName:
-              type: string
-            DateApprove:
-              type: string
-            IsApprove:
-              type: integer
-            StatusID:
-              type: integer
+            $ref: '#/definitions/WorkFlowApproveModel'
         
       responses:
         500:
@@ -371,5 +283,56 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  WorkFlowModel:
+    properties:
+      WorkFlowID:
+              type: integer
+      TypeWorkFlowID:
+              type: integer
+      TypeWorkFlowName:
+              type: string
+      IsDetailList:
+              type: integer
+      Title:
+              type: string
+      FieldDetails:
+              type: integer
+      UserRequirementID:
+              type: integer
+      UserRequirementName:
+              type: string
+      DepartmentUserRequirement:
+              type: string
+      StatusID:
+              type: integer
+              
+  WorkFlowApproveModel:
+    properties:
+      WorkFlowApproveID:
+              type: integer
+      SectionName:
+              type: string
+      WorkFlowID:
+              type: string
+      UserApproveID:
+              type: integer
+      UserApproveName:
+              type: string
+      DepartmentApproveID:
+              type: integer
+      DepartmentApproveName:
+              type: string
+      UserForwardID:
+              type: integer
+      UserForwardName:
+              type: string
+      DateApprove:
+              type: string
+      IsApprove:
+              type: integer
+      StatusID:
+              type: integer
           
   

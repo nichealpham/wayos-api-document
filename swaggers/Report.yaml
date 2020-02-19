@@ -122,12 +122,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            fromdate:
-              type: "string"
-            todate:
-              type: "string"
+            $ref: '#/definitions/Date'
         
       responses:
         500:
@@ -180,12 +175,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            fromdate:
-              type: "string"
-            todate:
-              type: "string"
+            $ref: '#/definitions/Date'
         
       responses:
         500:
@@ -249,3 +239,11 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  Date:
+    properties:
+      fromdate:
+              type: "string"
+      todate:
+              type: "string"

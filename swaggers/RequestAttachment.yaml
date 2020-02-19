@@ -50,16 +50,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            AttachmentID:
-              type: "integer"
-            FileName:
-              type: "string"
-            FilePath:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/RequestAttachmentModel'
         
       responses:
         500:
@@ -95,5 +86,17 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  RequestAttachmentModel:
+    properties:
+      AttachmentID:
+              type: "integer"
+      FileName:
+              type: "string"
+      FilePath:
+              type: "string"
+      StatusID:
+              type: "integer"
           
   

@@ -100,20 +100,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ServicesID:
-              type: "integer"
-            ServicesName:
-              type: "string"
-            ServicesDomain:
-              type: "string"
-            ServicesDescription:
-              type: "string"
-            IconName:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/Service'
         
       responses:
         500:
@@ -149,20 +136,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ServicesID:
-              type: "integer"
-            ServicesName:
-              type: "string"
-            ServicesDomain:
-              type: "string"
-            ServicesDescription:
-              type: "string"
-            IconName:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/Service'
         
       responses:
         500:
@@ -198,20 +172,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ServicesID:
-              type: "integer"
-            ServicesName:
-              type: "string"
-            ServicesDomain:
-              type: "string"
-            ServicesDescription:
-              type: "string"
-            IconName:
-              type: "string"
-            StatusID:
-              type: "integer"
+            $ref: '#/definitions/Service'
         
       responses:
         500:
@@ -239,4 +200,20 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+definitions:
+  Service:
+    properties:
+      ServicesID:
+              type: "integer"
+      ServicesName:
+              type: "string"
+      ServicesDomain:
+              type: "string"
+      ServicesDescription:
+              type: "string"
+      IconName:
+              type: "string"
+      StatusID:
+              type: "integer"
           
