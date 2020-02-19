@@ -239,22 +239,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            StaffCode:
-              type: string
-            CompanyID:
-              type: integer
-            CompanyName:
-              type: string
-            Email:
-              type: string
-            Phone:
-              type: string
-            Passwords:
-              type: string
-            FullName:
-              type: string
+            $ref: '#/definitions/StaffDetailsModel'
   
       responses:
         500:
@@ -302,22 +287,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            StaffCode:
-              type: string
-            CompanyID:
-              type: integer
-            CompanyName:
-              type: string
-            Email:
-              type: string
-            Phone:
-              type: string
-            Passwords:
-              type: string
-            FullName:
-              type: string
+            $ref: '#/definitions/StaffDetailsModel'
   
       responses:
         500:
@@ -343,18 +313,7 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            StaffCode:
-              type: string
-            CompanyID:
-              type: integer
-            CompanyName:
-              type: string
-            Passwords:
-              type: string
-            FullName:
-              type: string
+            $ref: '#/definitions/StaffDetailsModel'
   
       responses:
         500:
@@ -404,9 +363,18 @@ paths:
         name: "Body"
         required: true
         schema:
-          type: "object"
-          properties:
-            ListItems:
+            $ref: '#/definitions/GroupOfMemberUpdateBody'
+              
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+definitions:
+  GroupOfMemberUpdateBody:
+    properties:
+      ListItems:
               type: "array"
               items: 
                 type: "object"
@@ -421,12 +389,21 @@ paths:
                     type: "boolean"
                   StaffID:
                     type: "integer"
-              
-      responses:
-        500:
-          description: "Internal server error"
-        200:
-          description: "OK"
-          
-
+  StaffDetailsModel:
+    properties:
+            StaffCode:
+              type: string
+            CompanyID:
+              type: integer
+            CompanyName:
+              type: string
+            Email:
+              type: string
+            Phone:
+              type: string
+            Passwords:
+              type: string
+            FullName:
+              type: string
+    
   
