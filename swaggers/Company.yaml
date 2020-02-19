@@ -207,10 +207,6 @@ paths:
         type: "string"
         name: "Authorization"
         required: true
-      - in: "path"
-        name: "companyID"
-        type: "integer"
-        required: true
       - in: "body"
         name: "Body"
         required: true
