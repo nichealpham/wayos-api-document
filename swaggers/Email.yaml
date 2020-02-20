@@ -59,6 +59,28 @@ paths:
         200:
           description: "OK"
           
+  "/email/getemailtemplate/{templateName}":
+    get:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách mẫu giao diện Mail"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "string"
+        name: "templateName"
+        required: true
+            
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+          
 definitions:
   sentemailapprove:
     properties:

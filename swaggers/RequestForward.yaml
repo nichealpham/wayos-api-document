@@ -36,3 +36,47 @@ paths:
         200:
           description: "OK"
           
+  "/requestcomment/createrequestcommentworkflow":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/RequestForwardModel'
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+definitions:
+  RequestForwardModel:
+    properties:
+      ForwardID:
+              type: "integer"
+      ProcessID:
+              type: "integer"
+      UserForwardID:
+              type: "integer"
+      UserReceiveID:
+              type: "string"
+      UserReferenceID:
+              type: "string"
+      StatusID:
+              type: "integer"
+      UserCreate:
+              type: "string"
+          

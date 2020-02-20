@@ -96,11 +96,37 @@ paths:
         200:
           description: "OK"
           
-  "/position/updatestatusposition/{positionID}":
+  "/position/updateposition/{postionID}":
     put:
       tags:
       - "Functions List"
       summary: "Cập nhật trang thái chức vụ theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "postionID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/PositionModel'
+     
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/position/updatestatusposition/{positionID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật chức vụ theo ID"
       parameters:
       - in: "header"
         type: "string"

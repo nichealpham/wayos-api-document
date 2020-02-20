@@ -132,3 +132,110 @@ paths:
         200:
           description: "OK"
           
+  "/requestprocess/createrequestprocess":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/createrequestprocess'
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/updateprocess/{processID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "processID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/createrequestprocess'
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/updateprocess/userforward/{processID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "processID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/createrequestprocess'
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestprocess/deleteprocess/{processID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "path"
+        type: "integer"
+        name: "processID"
+        required: true
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+definitions:
+  createrequestprocess:
+    properties:
+      StaffFullName:
+              type: "string"
+      StaffID:
+              type: "integer"
+      CompanyID:
+              type: "integer"
+      Title:
+              type: "string"
+          

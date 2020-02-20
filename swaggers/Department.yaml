@@ -208,6 +208,42 @@ paths:
         200:
           description: "OK"
           
+  "/departments/updatestatusdepartment/{departmentID}":
+    put:
+      tags:
+      - "Functions List"
+      summary: "Cập nhật trạng thái thông tin phòng ban và chỉ có người có quyền mới được cập nhật"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "header"
+        type: "number"
+        name: "Page"
+        required: true
+        default: 1
+      - in: "header"
+        type: "number"
+        name: "Limit"
+        required: true
+        default: 100
+      - in: "path"
+        type: "integer"
+        name: "departmentID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/Department'
+  
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
 definitions:
   Department:
     properties:

@@ -81,3 +81,74 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          
+  "/requestcomment/createrequestcomment":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "RequestProcessID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/Create'
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+  "/requestcomment/createrequestcommentworkflow":
+    post:
+      tags:
+      - "Functions List"
+      summary: "Liệt kê danh sách yêu cầu bình luận theo ID"
+      parameters:
+      - in: "header"
+        type: "string"
+        name: "Authorization"
+        required: true
+      - in: "query"
+        type: "integer"
+        name: "workFlowID"
+        required: true
+      - in: "body"
+        name: "Body"
+        required: true
+        schema:
+            $ref: '#/definitions/CreateRequestCommentWorkflow'
+        
+      responses:
+        500:
+          description: "Internal server error"
+        200:
+          description: "OK"
+          
+definitions:
+  Create:
+    properties:
+      StaffFullName:
+              type: "string"
+      Comment:
+              type: "string"
+      staffInforID:
+              type: "integer"
+              
+  CreateRequestCommentWorkflow:
+    properties:
+      StaffFullName:
+              type: "string"
+      StaffInfoID:
+              type: "string"
+      Comment:
+              type: "integer"
