@@ -61,6 +61,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CompanyModel'
           
   "/companys/getlistservicesbycompanyid/{companyID}":
     get:
@@ -81,6 +83,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK" 
+          schema:
+            $ref: '#/definitions/ServicesModel'
           
   "/companys/toggleservicebycompanyid/{serviceID}/{companyID}":
     put:
@@ -122,6 +126,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CompanyDropdownListItem'
           
   "/companys/mycompany/getlistservices":
     get:
@@ -139,6 +145,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK" 
+          schema:
+            $ref: '#/definitions/ServicesModel'
           
   "/companys/mycompany/toggleservice/{serviceID}":
     post:
@@ -176,6 +184,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK" 
+          schema:
+            $ref: '#/definitions/CompanyModel'
           
   "/companys/companybyid/{companyID}":
     get:
@@ -196,6 +206,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK" 
+          schema:
+            $ref: '#/definitions/CompanyModel'
           
   "/companys/createcompany":
     post:
@@ -291,6 +303,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CompanyModel'
           
 definitions:
   CompanyModel:
@@ -315,3 +329,29 @@ definitions:
           type: "string"
       StatusID:
           type: "integer"
+          
+  ServicesModel:
+    properties:
+      ServicesID:
+        type: "integer"
+      ServicesName:
+        type: "string"
+      ServicesDomain:
+        type: "string"
+      ServicesDescription:
+        type: "string"
+      IconName:
+        type: "string"
+      StatusID:
+        type: "integer"
+        
+  CompanyDropdownListItem:
+    properties:
+      CompanyID:
+        type: "integer"
+      Logo:
+        type: "string"
+      CompanyName:
+        type: "string"
+      CompanyDescription:
+        type: "string"

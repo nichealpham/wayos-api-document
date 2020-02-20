@@ -44,6 +44,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/TokenAuthenticationModel'
           
   "/authentication/validtoken":
     post:
@@ -96,6 +98,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK
+          schema:
+            $ref: '#/definitions/UserTypesModel'
           
   "/authentication/switchcompany/{companyID}":
     post:
@@ -128,4 +132,36 @@ definitions:
       Passwords:
         type: string
 
-  
+  TokenAuthenticationModel:
+    properties:
+      TokenID:
+        type: string
+      StaffID:
+        type: integer
+      StaffFullName:
+        type: string
+      StaffCode:
+        type: string
+      UserTypeID:
+        type: integer
+      UserTypeName:
+        type: string
+      CompanyID:
+        type: integer
+      DepartmentName:
+        type: string
+      StaffInfoID:
+        type: integer
+      CompanyName:
+        type: string
+      ImagesPath:
+        type: string
+        
+  UserTypesModel:
+    properties:
+      UserTypeID:
+        type: integer
+      UserTypeName:
+        type: string
+      UserTypeDescription:
+        type: string
