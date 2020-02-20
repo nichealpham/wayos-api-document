@@ -27,6 +27,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/getprofile'
           
   "/staff/getdropdownlist":
     get:
@@ -48,6 +50,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffDropdownListItem'
           
   "/staff/searchdropdownlist":
     get:
@@ -73,6 +77,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffDropdownListItem'
           
   "/staff/getprofile/{staffID}":
     get:
@@ -95,6 +101,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/getprofile'
           
   "/staff/getlistcompanystaffs":
     get:
@@ -124,6 +132,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffListItemModel'
           
   "/staff/getlistadmins":
     get:
@@ -141,6 +151,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffListItemModel'
           
   "/staff/getheaderinfo":
     get:
@@ -158,6 +170,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffHeaderModel'
           
   "/staff/getuserapproverequest":
     get:
@@ -175,6 +189,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffUserApproveRequest'
           
   "/staff/getusermanagerrequest/{departmentID}":
     get:
@@ -197,6 +213,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffUserApproveRequest'
           
   "/staff/searchgroups/{staffID}":
     get:
@@ -224,6 +242,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/GroupOfMemberModel'
           
   "/staff/createstaff":
     post:
@@ -268,6 +288,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffUserApproveRequest'
           
   "/staff/updatestaff/{staffID}":
     put:
@@ -405,5 +427,152 @@ definitions:
               type: string
             FullName:
               type: string
-    
-  
+  getprofile:
+    properties: 
+     StaffCode: 
+      type: "string"
+     CompanyID: 
+      type: "integer"
+     CompanyName: 
+      type: "string"
+     Email: 
+      type: "string"
+     Phone: 
+      type: "string"
+     Passwords: 
+      type: "string"
+     FullName: 
+      type: "string"
+     ImagesPath: 
+      type: "string"
+     IdentityCard: 
+      type: "string"
+     AreaIdentity: 
+      type: "string"
+     LevelSpecialize: 
+      type: "string"
+     AddressLive: 
+      type: "string"
+     AddressBorn: 
+      type: "string"
+     Job: 
+      type: "string"
+     NumberSocialInsurance: 
+      type: "string"
+     NumberHealthInsurance: 
+      type: "string"
+     CodeAreaHealthcare: 
+      type: "string"
+     AreaHealthcare: 
+      type: "string"
+     Tel: 
+      type: "string"
+     Extension: 
+      type: "string"
+     InformationFamily: 
+      type: "string"
+     CodeIncomeTax: 
+      type: "string"
+     UserStaffDescription: 
+      type: "string"
+     NameBank: 
+      type: "string"
+     AccountBank: 
+      type: "string"
+     PlaceBorn: 
+      type: "string"
+     ReasionOff: 
+      type: "string"
+     ResionWork: 
+      type: "string"
+      
+  StaffDropdownListItem:
+    properties: 
+     StaffID: 
+      type: "string"
+     FullName: 
+      type: "integer"
+     ImagesPath: 
+      type: "string"
+     Email: 
+      type: "string"
+      
+  StaffListItemModel:
+    properties: 
+     StaffID: 
+      type: "integer"
+     StatusID: 
+      type: "integer"
+     StaffCode: 
+      type: "string"
+     CompanyID: 
+      type: "integer"
+     CompanyName: 
+      type: "string"
+     FullName: 
+      type: "string"
+     ImagesPath: 
+      type: "string"
+     DepartmentName: 
+      type: "string"
+     UserTypeName: 
+      type: "string"
+     PositionName: 
+      type: "string"
+     Email: 
+      type: "string"
+     Phone: 
+      type: "string"
+      
+  StaffHeaderModel:
+    properties: 
+     StaffID: 
+      type: "integer"
+     StaffCode: 
+      type: "string"
+     FullName: 
+      type: "string"
+     Email: 
+      type: "string"
+     Phone: 
+      type: "string"
+     ImagesPath: 
+      type: "string"
+     ListItems:
+              type: "array"
+              items: 
+                type: "object"
+                properties:
+                  CompanyID: 
+                    type: "integer"
+                  CompanyName: 
+                    type: "string"
+                  CompanyDescription: 
+                    type: "string"
+                    
+  StaffUserApproveRequest:
+    properties: 
+     StaffID: 
+      type: "integer"
+     StaffCode: 
+      type: "string"
+     FullName: 
+      type: "string"
+     DepartmentID: 
+      type: "integer"
+     DepartmentName: 
+      type: "string"
+      
+  GroupOfMemberModel:
+    properties: 
+     GroupID: 
+      type: "integer"
+     GroupName: 
+      type: "string"
+     GroupDescription: 
+      type: "string"
+     AccessAllowed: 
+      type: "boolean"
+     StaffID: 
+      type: "integer"
+                 
