@@ -40,6 +40,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CMSNewsModel'
           
   "/cmsnews/listnews":
     get:
@@ -79,6 +81,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CMSNewsModel'
           
   "/cmsnews/getnewsbyid/{newsID}":
     get:
@@ -100,6 +104,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CMSNewsModel'
           
   "/cmsnews/createnews":
     post:

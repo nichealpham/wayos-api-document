@@ -34,6 +34,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ConfigsModel'
           
   "/configs/searchconfigdetail/{configKey}":
     get:
@@ -59,6 +61,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ConfigsModel'
           
   "/configs/createconfig":
     post:

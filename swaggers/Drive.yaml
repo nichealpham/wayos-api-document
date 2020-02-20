@@ -37,6 +37,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriverStoreagesModel'
           
   "/drive/drivedefault":
     get:
@@ -54,6 +56,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriverStoreagesModel'
           
   "/drive/drivebyid/{driveID}":
     get:
@@ -85,6 +89,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriverStoreagesModel'
           
   "/drive/folderpath":
     get:
@@ -106,6 +112,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriveFolderItem'
           
   "/drive/filefolderpath":
     get:
@@ -137,6 +145,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriverFileFoldersModel'
           
   "/drive/searchchildrenitems/{driveID}":
     get:
@@ -166,6 +176,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriverFolderChildrenItem'
           
   "/drive/childrenitems/{driveID}":
     get:
@@ -191,6 +203,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriverFolderChildrenItem'
           
   "/drive/folderitems/{driveID}":
     get:
@@ -212,6 +226,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/DriveFolderItem'
           
   "/drive/breakcrumitems":
     get:
@@ -485,6 +501,32 @@ definitions:
       MimeType:
               type: string
       PublicPath:
+              type: string
+              
+  DriverStoreagesModel:
+    properties:
+      DriveID:
+              type: integer
+      StaffID:
+              type: integer
+      DriveTypeID:
+              type: integer
+      CompanyID:
+              type: integer
+      StatusID:
+              type: integer
+      DriveName:
+              type: string
+              
+  DriveFolderItem:
+    properties:
+      FolderID:
+              type: integer
+      DriveID:
+              type: integer
+      ParentID:
+              type: integer
+      FolderName:
               type: string
           
           

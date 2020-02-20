@@ -48,6 +48,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CMSCategoryNewsModel'
           
   "/cmscategorynews/getcategorynewsbyid/{categoryNewsID}":
     get:
@@ -69,6 +71,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/CMSCategoryNewsModel'
           
   "/cmscategorynews/createcategorynews":
     post:

@@ -44,6 +44,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Department'
           
   "/departments/getliststaffs/{departmentID}":
     get:
@@ -79,6 +81,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffDetailsModel'
           
   
   "/departments/dropdownlistdepartments":
@@ -97,6 +101,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Department'
           
   "/departments/departmentbyid/{departmentID}":
     get:
@@ -118,6 +124,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Department'
           
   "/departments/search":
     get:
@@ -139,6 +147,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Department'
           
   "/departments/createdepartment":
     post:
@@ -257,3 +267,20 @@ definitions:
               type: "string"
       StatusID:
               type: "integer"
+              
+  StaffDetailsModel:
+    properties:
+            StaffCode:
+              type: string
+            CompanyID:
+              type: integer
+            CompanyName:
+              type: string
+            Email:
+              type: string
+            Phone:
+              type: string
+            Passwords:
+              type: string
+            FullName:
+              type: string
