@@ -7,8 +7,7 @@ host: "apiway.mavecons.com"
 basePath: "/api"
 tags:
 - name: "Functions List"
-schemes:
-- "http"
+
 paths:
   "/cmscategorynews/listcategorynews":
     get:

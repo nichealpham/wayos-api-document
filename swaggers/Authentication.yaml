@@ -6,9 +6,6 @@ info:
 host: "apiway.mavecons.com"
 basePath: "/api"
 
-schemes:
-- "http"
-
 paths:
 
   "/authentication/login":
