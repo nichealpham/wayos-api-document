@@ -34,6 +34,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/PositionModel'
           
   "/position/dropdownlistpositions":
     get:
@@ -51,6 +53,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/PositionModel'
           
   "/position/positionbyid/{positionID}":
     get:
@@ -72,6 +76,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/PositionModel'
           
   "/position/createposition":
     post:

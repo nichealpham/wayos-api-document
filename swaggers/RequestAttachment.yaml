@@ -34,6 +34,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestAttachmentModel'
           
   "/requestattachment/createattachment":
     post:

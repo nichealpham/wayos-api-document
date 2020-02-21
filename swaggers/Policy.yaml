@@ -40,6 +40,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/getlistgroupmodules'
           
   "/policy/getlistpolicymodules":
     get:
@@ -73,6 +75,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/PolicyPermissionUpdateModel'
           
   "/policy/getlistallowedservices":
     get:
@@ -90,6 +94,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Service'
           
   "/policy/getlistclaimnames":
     get:
@@ -182,3 +188,26 @@ definitions:
                     type: "integer"
       GroupID:
                     type: "integer"
+                    
+                    
+  getlistgroupmodules:
+    properties:
+      PolicyGroupModuleID:
+                    type: "integer"
+      GroupName: 
+                    type: "string"
+                    
+  Service:
+    properties:
+      ServicesID:
+              type: "integer"
+      ServicesName:
+              type: "string"
+      ServicesDomain:
+              type: "string"
+      ServicesDescription:
+              type: "string"
+      IconName:
+              type: "string"
+      StatusID:
+              type: "integer"

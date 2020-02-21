@@ -36,6 +36,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/TypeWorkFlowModel'
           
   "/typeworkflow/listtypeWorkflowsearch":
     get:
@@ -71,6 +73,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/TypeWorkFlowModel'
           
   "/typeworkflow/gettypeworkflowbyid/{typeWorkFlowID}":
     get:
@@ -92,6 +96,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/TypeWorkFlowModel'
           
   "/typeworkflow/createtypeworkflow":
     post:
@@ -207,6 +213,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/WorkFlowConfigModel'
           
   "/workflowconfig/createworkflowconfig":
     post:
@@ -286,6 +294,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/WorkFlowConfigModel'
           
   "/workflowconfig/updatestatusworkflowconfig/{configID}":
     put:

@@ -7,7 +7,8 @@ host: "apiway.mavecons.com"
 basePath: "/api"
 tags:
 - name: "Functions List"
-
+schemes:
+- "http"
 paths:
           
   "/group/listgroups":
@@ -44,6 +45,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/GroupModels'
           
   "/group/searchmembers/{groupID}":
     get:
@@ -77,6 +80,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/GroupOfMemberUpdateBody'
           
   "/group/updatemembers/{groupID}":
    put:
@@ -123,6 +128,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/GroupModels'
           
   "/group/creategroup":
     post:
@@ -296,6 +303,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/GroupInStaff'
           
   "/groupstaff/listgroupinstaffbyid/{staffID}":
     get:
@@ -327,6 +336,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/GroupInStaff'
           
           
 definitions:
@@ -377,3 +388,12 @@ definitions:
               type: "integer"
       StatusID:
               type: "integer"
+              
+  GroupInStaff:
+    properties:
+      GroupID:
+              type: "integer"
+      GroupName:
+              type: "string"
+      GroupDescription:
+              type: "string"

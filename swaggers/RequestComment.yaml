@@ -34,6 +34,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestCommentModel'
           
   "/requestcomment/getrequestcommentchat":
     get:
@@ -59,6 +61,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestCommentModel'
           
   "/requestcomment/getlistrequestcommentbyworkflowid/{workFlowID}":
     get:
@@ -80,6 +84,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestCommentModel'
           
   "/requestcomment/createrequestcomment":
     post:
@@ -151,3 +157,18 @@ definitions:
               type: "string"
       Comment:
               type: "integer"
+              
+  RequestCommentModel:
+    properties:
+      CommentID:
+              type: "integer"
+      ProcessID:
+              type: "integer"
+      StatusID:
+              type: "integer"
+      ImagePath:
+              type: "string"
+      UserComment:
+              type: "string"
+      ContentComment:
+              type: "string"

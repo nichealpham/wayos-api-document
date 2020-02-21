@@ -53,6 +53,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Service'
           
   "/services/servicebyid/{serviceID}":
     get:
@@ -74,6 +76,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Service'
           
   "/services/createservice":
     post:
@@ -199,6 +203,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Service'
           
 definitions:
   Service:

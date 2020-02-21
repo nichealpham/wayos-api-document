@@ -44,6 +44,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ListNewStaff'
           
   "/listnewstaffs":
     get:
@@ -71,6 +73,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ListNewStaff'
           
   "/listdateoffs/export":
     get:
@@ -106,6 +110,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ListNewStaff'
           
   "/listdateoffs":
     get:
@@ -128,6 +134,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ListNewStaff'
           
   "/listsenioritys/export":
     get:
@@ -159,6 +167,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Seniority'
           
   "/listbirthdays":
     get:
@@ -181,6 +191,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ListNewStaff'
   
           
   "/listsenioritys":
@@ -207,6 +219,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/Seniority'
           
   "/listbirthdays/export":
     get:
@@ -238,6 +252,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/ListNewStaff'
           
 definitions:
   Date:
@@ -245,4 +261,40 @@ definitions:
       fromdate:
               type: "string"
       todate:
+              type: "string"
+              
+  ListNewStaff:
+    properties:
+      Number:
+              type: "integer"
+      StaffCode:
+              type: "string"
+      FullName:
+              type: "string"
+      DepartMent:
+              type: "string"
+      Position:
+              type: "string"
+      Phone:
+              type: "string"
+      Email:
+              type: "string"
+              
+  Seniority:
+    properties:
+      Number:
+              type: "integer"
+      StaffCode:
+              type: "string"
+      FullName:
+              type: "string"
+      DepartMent:
+              type: "string"
+      Position:
+              type: "string"
+      Phone:
+              type: "string"
+      Email:
+              type: "string"
+      Senioritys:
               type: "string"

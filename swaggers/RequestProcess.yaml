@@ -36,6 +36,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestProcessModel'
           
   "/requestprocess/listprocessneedmyapproval":
     get:
@@ -63,6 +65,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestProcessModel'
           
   "/requestprocess/listprocess":
     get:
@@ -88,6 +92,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestProcessModel'
           
   "/requestprocess/getuserapproverequest/{processID}":
     get:
@@ -109,6 +115,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/StaffUserApproveRequest'
           
   "/requestprocess/getprocessbyid/{processID}":
     get:
@@ -130,6 +138,8 @@ paths:
           description: "Internal server error"
         200:
           description: "OK"
+          schema:
+            $ref: '#/definitions/RequestProcessModel'
           
   "/requestprocess/createrequestprocess":
     post:
@@ -237,4 +247,46 @@ definitions:
               type: "integer"
       Title:
               type: "string"
+              
+  RequestProcessModel:
+    properties:
+      ProcessID:
+              type: "integer"
+      Title:
+              type: "string"
+      Description:
+              type: "string"
+      StatusID:
+              type: "integer"
+      PriorityID:
+              type: "integer"
+      UserPostID:
+              type: "integer"
+      UserPostName:
+              type: "string"
+      UserAssignID:
+              type: "integer"
+      UserAssignName:
+              type: "string"
+      UserReferenceID:
+              type: "integer"
+      UserReferenceName:
+              type: "string"
+      PercentProcess:
+              type: "integer"
+      UserForwardName:
+              type: "string"
+              
+  StaffUserApproveRequest:
+    properties: 
+     StaffID: 
+      type: "integer"
+     StaffCode: 
+      type: "string"
+     FullName: 
+      type: "string"
+     DepartmentID: 
+      type: "integer"
+     DepartmentName: 
+      type: "string"
           
