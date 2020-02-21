@@ -26,7 +26,7 @@
             .kt-header .kt-header__bottom .kt-container{width: auto;}
             .kt-header .kt-header__bottom{height:50px;}
             .select2-container{position:absolute;top:5px;right:20px;z-index:1000;}
-            #kt_select2_2{width:180px;}
+            #kt_select2_2{width:240px;}
         </style>
 	</head>
 
@@ -52,10 +52,32 @@
                                         <select id="kt_select2_2" class="form-control kt-select2">
                                             <option value="/authentication" selected>Authentication APIs</option>
                                             <option value="/staff">Staff APIs</option>
-                                            <option value="/company">Company APIs</option>
                                             <option value="/department">Department APIs</option>
                                             <option value="/position">Position APIs</option>
-                                            <option value="/service">Service APIs</option>
+											<option value="/service">Service APIs</option>
+                                            <option value="/configs">Configs APIs</option>
+											<option value="/drive">Drive APIs</option>
+											<option value="/sentemail">Email APIs</option>
+                                            <option value="/group">Group APIs</option>
+                                            <option value="/policy">Policy APIs</option>
+											<option value="/report">Report APIs</option>
+                                            <option value="/usertypes">User Types APIs</option>
+											<option value="/workflow">Workflow APIs</option>
+											<optgroup label="Company/CompanyService APIs">
+												<option value="/company">Company APIs</option>
+												<option value="/companyservice">CompanyService</option>
+											</optgroup>
+											<optgroup label="CMS APIs">
+												<option value="/cmscategorynews">CMS Category News APIs</option>
+												<option value="/cmscontenttype">CMS Content Type APIs</option>
+												<option value="/cmsnews">CMS News APIs</option>
+											</optgroup>
+											<optgroup label="Request APIs">
+											    <option value="/requestattachment">Request Attachment APIs</option>
+												<option value="/requestcomment">Request Comment APIs</option>
+												<option value="/requestforward">Request Forward APIs</option>
+												<option value="/requestprocess">Request Process APIs</option>
+										    </optgroup>
                                         </select>
 									</div>
 								</div>
