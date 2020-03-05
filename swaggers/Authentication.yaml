@@ -3,7 +3,9 @@ info:
   description: "APIs xử lý nghiệp vụ về đăng nhập / đăng xuất và bảo mật thông tin của user trong hệ thống WayOS."
   version: "1.0.1"
   title: "Authentication"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 
 paths:

@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ liệt kê, tạo mới yêu cầu chuyển tiếp "
   version: "1.0.1"
   title: "Request Forward"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

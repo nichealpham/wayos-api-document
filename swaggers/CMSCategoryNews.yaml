@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ tìm, tạo, sửa tin tức"
   version: "1.0.1"
   title: "CMS Category News"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

@@ -3,7 +3,9 @@ info:
   description: "APIs về các chính sach modun"
   version: "1.0.1"
   title: "Policy"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

@@ -3,7 +3,9 @@ info:
   description: "APIs Về việc gởi mail"
   version: "1.0.1"
   title: "Email"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

@@ -3,7 +3,9 @@ info:
   description: "APIs for handling user's authentication data when interacting with WayOS backend"
   version: "1.0.1"
   title: "Departments"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

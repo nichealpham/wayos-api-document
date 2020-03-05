@@ -3,12 +3,13 @@ info:
   description: "APIs về nhóm và nhân viên trong nhóm"
   version: "1.0.1"
   title: "Group"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"
-schemes:
-- "http"
+
 paths:
           
   "/group/listgroups":

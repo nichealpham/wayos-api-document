@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ xem loại nội dung của tin tức"
   version: "1.0.1"
   title: "CMS Content Type"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

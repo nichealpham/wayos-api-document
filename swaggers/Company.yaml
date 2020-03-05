@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ tìm, tạo, cập nhật thông tin công ty và các dịch vụ của công ty"
   version: "1.0.1"
   title: "Company"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

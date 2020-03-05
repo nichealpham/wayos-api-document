@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ lấy xem, xóa, sửa, tạo mới thông tin của một nhân viên "
   version: "1.0.1"
   title: "Staff"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

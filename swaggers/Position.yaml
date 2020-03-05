@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ hiễn thị tạo sữa các chứa vụ trong công ty"
   version: "1.0.1"
   title: "Position"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

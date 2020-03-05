@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ về các ỗ đĩa lưu trữ dữ liệu"
   version: "1.0.1"
   title: "Drive"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"

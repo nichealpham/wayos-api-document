@@ -3,7 +3,9 @@ info:
   description: "APIs hỗ trợ liệt kê hoặc download danh sách nhân viên mới,sinh nhật ,thâm niên trong thời gian ta truyền vào "
   version: "1.0.1"
   title: "Report"
-host: "apiway.mavecons.com"
+host: "dev-apicore.way.vn"
+schemes:
+  - https
 basePath: "/api"
 tags:
 - name: "Functions List"
