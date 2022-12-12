@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/nichealpham/wayos-api-document#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "js-yaml": "^3.13.1",
     "swagger-ui-express": "^4.1.3"
   }
